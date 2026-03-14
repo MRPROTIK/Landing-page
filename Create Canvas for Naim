@@ -1,1 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Create Canvas – Photo Magnets</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- DEMO BANNER -->
+  <div class="demo-banner" id="demoBanner" style="display:none">
+    <span class="demo-pill">DEMO</span>
+    <span class="t" data-en="This is a preview link — no real orders or payments are processed" data-sv="Detta är en förhandsvisning — inga riktiga beställningar eller betalningar behandlas"></span>
+  </div>
+
+  <!-- LANGUAGE SWITCHER -->
+  <div class="lang-bar">
+    <div class="lang-inner">
+      <img src="logo.png" alt="Create Canvas" class="nav-logo" />
+      <div class="lang-btns">
+        <button class="lang-btn active" onclick="setLang('en')">🇬🇧 EN</button>
+        <button class="lang-btn" onclick="setLang('sv')">🇸🇪 SV</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- HERO — full above-the-fold, split layout -->
+  <header class="hero">
+    <div class="hero-overlay"></div>
+
+    <!-- Left: copy -->
+    <div class="hero-content">
+      <div class="hero-eyebrow">
+        <span class="dot"></span>
+        <span class="t" data-en="Scan · Order · Collect in 20 min" data-sv="Skanna · Beställ · Hämta på 20 min"></span>
+      </div>
+      <h1>
+        <span class="t" data-en="Turn Your Photos" data-sv="Förvandla dina foton"></span><br>
+        <em><span class="t" data-en="Into Real Magnets" data-sv="Till riktiga magneter"></span></em>
+      </h1>
+      <p class="hero-sub t" data-en="Upload in seconds. We print while you shop. Take home something real." data-sv="Ladda upp på sekunder. Vi printar medan du handlar. Ta hem något riktigt."></p>
+
+      <!-- Inline steps -->
+      <div class="hero-steps">
+        <div class="hero-step">
+          <div class="hs-num">1</div>
+          <div class="hs-label t" data-en="Pick package" data-sv="Välj paket"></div>
+        </div>
+        <div class="hs-arrow">→</div>
+        <div class="hero-step">
+          <div class="hs-num">2</div>
+          <div class="hs-label t" data-en="Upload photos" data-sv="Ladda upp"></div>
+        </div>
+        <div class="hs-arrow">→</div>
+        <div class="hero-step">
+          <div class="hs-num">3</div>
+          <div class="hs-label t" data-en="Pay Swish" data-sv="Swisha"></div>
+        </div>
+        <div class="hs-arrow">→</div>
+        <div class="hero-step">
+          <div class="hs-num">4</div>
+          <div class="hs-label t" data-en="Collect!" data-sv="Hämta!"></div>
+        </div>
+      </div>
+
+      <a href="#order" class="btn-primary hero-cta">
+        <span class="t" data-en="Order Now →" data-sv="Beställ nu →"></span>
+      </a>
+    </div>
+
+    <!-- Right: magnet grid mockup -->
+    <div class="hero-visual" aria-hidden="true">
+      <div class="magnet-grid">
+        <div class="mg-card mg-c1"><span>🏖️</span></div>
+        <div class="mg-card mg-c2"><span>🌸</span></div>
+        <div class="mg-card mg-c3"><span>🐾</span></div>
+        <div class="mg-card mg-c4"><span>🎂</span></div>
+        <div class="mg-card mg-c5"><span>🏔️</span></div>
+        <div class="mg-card mg-c6"><span>🌊</span></div>
+      </div>
+      <p class="magnet-label t" data-en="Your memories, printed as magnets" data-sv="Dina minnen, printade som magneter"></p>
+    </div>
+  </header>
+
+  <!-- PRICING -->
+  <section class="pricing" id="pricing">
+    <div class="container">
+      <h2 class="t" data-en="Choose Your Package" data-sv="Välj ditt paket"></h2>
+      <p class="section-sub t" data-en="All prices include printing and lamination" data-sv="Alla priser inkluderar print och laminering"></p>
+      <div class="pricing-grid">
+
+        <label class="price-card" for="pkg-3">
+          <input type="radio" name="package" id="pkg-3" value="3" data-price="120" data-original="160" />
+          <div class="card-inner">
+            <div class="photo-count">3 <span class="t" data-en="photos" data-sv="foton"></span></div>
+            <div class="prices">
+              <span class="old-price">160 kr</span>
+              <span class="new-price">120 kr</span>
+            </div>
+            <div class="saving t" data-en="Save 40 kr" data-sv="Spara 40 kr"></div>
+          </div>
+          <div class="checkmark">✓</div>
+        </label>
+
+        <label class="price-card popular" for="pkg-6">
+          <div class="popular-tag t" data-en="Most Popular" data-sv="Populärast"></div>
+          <input type="radio" name="package" id="pkg-6" value="6" data-price="170" data-original="210" checked />
+          <div class="card-inner">
+            <div class="photo-count">6 <span class="t" data-en="photos" data-sv="foton"></span></div>
+            <div class="prices">
+              <span class="old-price">210 kr</span>
+              <span class="new-price">170 kr</span>
+            </div>
+            <div class="saving t" data-en="Save 40 kr" data-sv="Spara 40 kr"></div>
+          </div>
+          <div class="checkmark">✓</div>
+        </label>
+
+        <label class="price-card" for="pkg-9">
+          <input type="radio" name="package" id="pkg-9" value="9" data-price="220" data-original="299" />
+          <div class="card-inner">
+            <div class="photo-count">9 <span class="t" data-en="photos" data-sv="foton"></span></div>
+            <div class="prices">
+              <span class="old-price">299 kr</span>
+              <span class="new-price">220 kr</span>
+            </div>
+            <div class="saving t" data-en="Save 79 kr" data-sv="Spara 79 kr"></div>
+          </div>
+          <div class="checkmark">✓</div>
+        </label>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ORDER FORM -->
+  <section class="order-section" id="order">
+    <div class="container">
+      <h2 class="t" data-en="Upload Your Photos" data-sv="Ladda upp dina foton"></h2>
+      <p class="section-sub t" data-en="Choose how you'd like to share your photos with us" data-sv="Välj hur du vill dela dina foton med oss"></p>
+
+      <form id="orderForm" enctype="multipart/form-data">
+        <input type="hidden" name="package" id="hiddenPackage" value="6" />
+        <input type="hidden" name="price" id="hiddenPrice" value="170" />
+
+        <!-- STEP 1 -->
+        <div class="form-step">
+          <h3 class="step-title">
+            <span class="step-num">1</span>
+            <span class="t" data-en="Your Details" data-sv="Dina uppgifter"></span>
+          </h3>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fullname" class="t" data-en="Full Name" data-sv="Namn"></label>
+              <input type="text" id="fullname" name="fullname" class="t-ph" data-en="Anna Lindström" data-sv="Anna Lindström" required />
+            </div>
+            <div class="form-group">
+              <label for="phone" class="t" data-en="Phone Number" data-sv="Telefonnummer"></label>
+              <input type="tel" id="phone" name="phone" class="t-ph" data-en="070 123 45 67" data-sv="070 123 45 67" required />
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 2 -->
+        <div class="form-step">
+          <h3 class="step-title">
+            <span class="step-num">2</span>
+            <span class="t" data-en="Select Photos" data-sv="Välj foton"></span>
+            (<span id="selectedCount">0</span>/<span id="maxCount">6</span>)
+          </h3>
+
+          <div class="upload-tabs">
+            <button type="button" class="tab-btn active" data-tab="device">📱 <span class="t" data-en="Device" data-sv="Enhet"></span></button>
+            <button type="button" class="tab-btn" data-tab="facebook">📘 Facebook</button>
+            <button type="button" class="tab-btn" data-tab="gdrive">🟢 Google Drive</button>
+            <button type="button" class="tab-btn" data-tab="url">🔗 <span class="t" data-en="Link" data-sv="Länk"></span></button>
+          </div>
+
+          <div class="tab-content active" id="tab-device">
+            <div class="drop-zone" id="dropZone">
+              <div class="drop-inner">
+                <div class="drop-icon">🖼️</div>
+                <p class="t" data-en="Tap here to select photos<br><small>or drag and drop</small>" data-sv="Tryck här för att välja foton<br><small>eller dra och släpp</small>"></p>
+                <input type="file" id="fileInput" name="photos[]" accept="image/*" multiple style="display:none" />
+                <button type="button" class="btn-upload t" data-en="Choose Photos" data-sv="Välj foton" onclick="document.getElementById('fileInput').click()">Choose Photos</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-content" id="tab-facebook">
+            <div class="social-info">
+              <div class="social-icon">📘</div>
+              <h4 class="t" data-en="Share from Facebook" data-sv="Dela från Facebook"></h4>
+              <p class="t" data-en="Download your photos from Facebook and upload via the Device tab, or paste a direct link below." data-sv="Ladda ner dina foton från Facebook och ladda upp dem via Enhet-fliken, eller klistra in en direktlänk nedan."></p>
+              <a href="https://www.facebook.com/photos" target="_blank" class="btn-secondary t" data-en="Open Facebook Photos →" data-sv="Öppna Facebook Foton →">Open Facebook Photos →</a>
+            </div>
+          </div>
+
+          <div class="tab-content" id="tab-gdrive">
+            <div class="social-info">
+              <div class="social-icon">🟢</div>
+              <h4 class="t" data-en="From Google Drive" data-sv="Från Google Drive"></h4>
+              <p class="t" data-en="Make your photos public in Google Drive and paste the links below, or download and upload via Device." data-sv="Gör dina foton offentliga i Google Drive och klistra in länkarna nedan, eller ladda ner och ladda upp via Enhet."></p>
+              <a href="https://drive.google.com" target="_blank" class="btn-secondary t" data-en="Open Google Drive →" data-sv="Öppna Google Drive →">Open Google Drive →</a>
+            </div>
+          </div>
+
+          <div class="tab-content" id="tab-url">
+            <div class="url-inputs">
+              <h4 class="t" data-en="Paste Image Links" data-sv="Klistra in bildlänkar"></h4>
+              <div id="urlList">
+                <div class="url-row">
+                  <input type="url" name="photo_urls[]" placeholder="https://example.com/photo.jpg" class="url-input" />
+                  <button type="button" class="btn-add-url" onclick="addUrlRow()">+</button>
+                </div>
+              </div>
+              <p class="url-hint t" data-en="Add one link per photo. Max <span id='maxUrlCount'>6</span> photos." data-sv="Lägg till en länk per foto. Max <span id='maxUrlCount'>6</span> foton.">Add one link per photo. Max <span id="maxUrlCount">6</span> photos.</p>
+            </div>
+          </div>
+
+          <div class="preview-grid" id="previewGrid"></div>
+        </div>
+
+        <!-- STEP 3 -->
+        <div class="form-step" id="step3">
+          <h3 class="step-title">
+            <span class="step-num">3</span>
+            <span class="t" data-en="Payment" data-sv="Betalning"></span>
+          </h3>
+
+          <div class="order-summary">
+            <div class="summary-row">
+              <span class="t" data-en="Package:" data-sv="Paket:"></span>
+              <span id="summaryPackage">6 <span class="t" data-en="photos" data-sv="foton"></span></span>
+            </div>
+            <div class="summary-row total">
+              <span class="t" data-en="Total:" data-sv="Totalt:"></span>
+              <span id="summaryPrice">170 kr</span>
+            </div>
+          </div>
+
+          <div class="payment-options">
+            <label class="payment-option" for="pay-swish">
+              <input type="radio" name="payment" id="pay-swish" value="swish" checked />
+              <div class="payment-inner">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Swish_logo.svg/320px-Swish_logo.svg.png" alt="Swish" class="swish-logo" onerror="this.style.display='none'" />
+                <div>
+                  <strong>Swish</strong>
+                  <p class="t" data-en="Pay directly with Swish" data-sv="Betala direkt med Swish"></p>
+                </div>
+              </div>
+            </label>
+            <label class="payment-option" for="pay-shop">
+              <input type="radio" name="payment" id="pay-shop" value="shop" />
+              <div class="payment-inner">
+                <div class="payment-icon">🏪</div>
+                <div>
+                  <strong class="t" data-en="Pay in Store" data-sv="Betala i butiken"></strong>
+                  <p class="t" data-en="Cash or card at the counter" data-sv="Kontant eller kort i kassan"></p>
+                </div>
+              </div>
+            </label>
+          </div>
+
+          <div class="swish-instructions" id="swishInstructions">
+            <div class="swish-number-box">
+              <p><span class="t" data-en="Swish" data-sv="Swisha"></span> <strong id="swishAmount">170 kr</strong> <span class="t" data-en="to:" data-sv="till:"></span></p>
+              <div class="swish-number" id="swishNumberDisplay">+46 76 908 23 44</div>
+              <p class="swish-note t" data-en="Write your name in the message" data-sv="Skriv ditt namn i meddelandet"></p>
+            </div>
+          </div>
+
+          <div class="shop-instructions" id="shopInstructions" style="display:none">
+            <div class="shop-box">
+              <p class="t" data-en="✅ Your order will be submitted and you pay at the counter when you collect your magnets." data-sv="✅ Din beställning skickas in och du betalar i kassan när du hämtar magneterna."></p>
+            </div>
+          </div>
+
+          <button type="submit" class="btn-submit" id="submitBtn">
+            <span class="btn-text t" data-en="Place Order" data-sv="Skicka beställning"></span>
+            <span class="btn-loader" style="display:none">⏳ <span class="t" data-en="Sending..." data-sv="Skickar..."></span></span>
+          </button>
+          <p class="form-note t" data-en="By placing your order you agree that we process your photos to produce your magnets." data-sv="Genom att skicka beställningen godkänner du att vi behandlar dina foton för att producera dina magneter."></p>
+        </div>
+
+      </form>
+    </div>
+  </section>
+
+  <!-- SUCCESS / ORDER CONFIRMATION MODAL -->
+  <div class="modal-overlay" id="successModal" style="display:none">
+    <div class="modal">
+      <div class="modal-icon">🎉</div>
+      <h3 class="t" data-en="Order Confirmed!" data-sv="Beställning bekräftad!"></h3>
+
+      <div class="modal-order-card">
+        <div class="moc-row">
+          <span class="moc-label t" data-en="Order ID" data-sv="Order-ID"></span>
+          <span class="moc-val moc-id" id="modalOrderId">CC-XXXXXX</span>
+        </div>
+        <div class="moc-row">
+          <span class="moc-label t" data-en="Customer" data-sv="Kund"></span>
+          <span class="moc-val" id="modalName"></span>
+        </div>
+        <div class="moc-row">
+          <span class="moc-label t" data-en="Package" data-sv="Paket"></span>
+          <span class="moc-val" id="modalPkg"></span>
+        </div>
+        <div class="moc-row">
+          <span class="moc-label t" data-en="Photos uploaded" data-sv="Foton uppladdade"></span>
+          <span class="moc-val" id="modalPhotoCnt"></span>
+        </div>
+        <div class="moc-row moc-total">
+          <span class="moc-label t" data-en="Total" data-sv="Totalt"></span>
+          <span class="moc-val" id="modalPkgPrice"></span>
+        </div>
+      </div>
+
+      <div id="modalSwishBlock">
+        <div class="swish-number-box" style="margin:16px 0">
+          <p><span class="t" data-en="Swish" data-sv="Swisha"></span> <strong id="modalAmount">170 kr</strong> <span class="t" data-en="to:" data-sv="till:"></span></p>
+          <div class="swish-number" id="modalSwishNum">+46 76 908 23 44</div>
+          <p class="swish-note t" data-en="Write your name in the message" data-sv="Skriv ditt namn i meddelandet"></p>
+        </div>
+      </div>
+
+      <div id="modalShopBlock" style="display:none">
+        <div class="shop-box" style="margin:16px 0">
+          <p class="t" data-en="✅ Pay at the counter when you collect your magnets." data-sv="✅ Betala i kassan när du hämtar dina magneter."></p>
+        </div>
+      </div>
+
+      <p class="modal-sub t" data-en="Ready in approx. 15–30 minutes 🧲" data-sv="Klar om ca 15–30 minuter 🧲"></p>
+      <div class="modal-demo-note t" data-en="⚠️ Demo only — in the live version this order is sent to the shop and photos are saved." data-sv="⚠️ Endast demo — i den skarpa versionen skickas beställningen till butiken."></div>
+      <button onclick="resetForm()" class="btn-primary t" style="width:100%;margin-top:16px" data-en="New Order" data-sv="Ny beställning">New Order</button>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <img src="logo.png" alt="Create Canvas" class="footer-logo" />
+      <p class="t" data-en="© 2025 Create Canvas — Create Your Moment" data-sv="© 2025 Create Canvas — Create Your Moment"></p>
+      <p class="t" data-en="Questions? Ask us in the shop!" data-sv="Frågor? Fråga oss i butiken!"></p>
+    </div>
+  </footer>
+
+  <script src="js/config.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/lang.js"></script>
+</body>
+</html>
 
